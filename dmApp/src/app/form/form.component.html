@@ -8,24 +8,24 @@
 
 <body>
     <h1>Register</h1><br>
-    <div class = "form1">
+    <form class="form1" (ngSubmit)="onSubmit()">
         <mat-form-field>
-            <input matInput placeholder="Name" type="text">
+            <input matInput placeholder="Name" type="text" [(ngModel)]="fullName" name="fullName" required>
         </mat-form-field><br>
 
         <mat-form-field>
             <mat-label>Select a role</mat-label>
-            <mat-select placeholder="Role">
-                <mat-option value = "RescueTeam">Rescue Team</mat-option>
-                <mat-option value = "Hospital">Hospital</mat-option>
-                <mat-option value = "Volunteer">Volunteer Service</mat-option>
+            <mat-select [(ngModel)]="roles" name="roles" required>
+                <mat-option value="RescueTeam">Rescue Team</mat-option>
+                <mat-option value="Hospital">Hospital</mat-option>
+                <mat-option value="Volunteer">Volunteer Service</mat-option>
             </mat-select>
         </mat-form-field><br><br>
 
-        <button mat-button (click)="onSubmit()">Submit</button>
-    </div>
+        <button mat-button type="submit">Submit</button>
+    </form>
 
-    <div class = "link">
+    <div class="link">
         <br>
         <a routerLink="/login" target="_blank" style="color: blue;">Existing User? Login Here</a>
     </div>
