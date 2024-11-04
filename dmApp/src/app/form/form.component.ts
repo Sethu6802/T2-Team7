@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class FormComponent {
 
+  onSubmit(){
+    console.log("Saved.");
+  }
+
 }
