@@ -11,28 +11,28 @@ public class Patient {
 	
 	    @Id
 	    @GeneratedValue(strategy = GenerationType.IDENTITY)
-	    private Long id;
+	    private Long patientId;
 
-	    private String name;
+	    private String patientName;
 	    private int age;
 	    private String damageSeverity;
 	    private String details; // Additional details about the patient
 
 	    // Getters and setters
-	    public Long getId() {
-	        return id;
+	    public Long getPatientId() {
+	        return patientId;
 	    }
 
-	    public void setId(Long id) {
-	        this.id = id;
+	    public void setPatientId(Long id) {
+	        this.patientId = id;
 	    }
 
-	    public String getName() {
-	        return name;
+	    public String getPatientName() {
+	        return patientName;
 	    }
 
-	    public void setName(String name) {
-	        this.name = name;
+	    public void setPatientName(String name) {
+	        this.patientName = name;
 	    }
 
 	    public int getAge() {

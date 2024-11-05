@@ -26,7 +26,7 @@ public class PatientService {
 	public void savePatient(Patient patient) {
 		// Save patient to database using repository
 		patientRepository.save(patient);
-		System.out.println("Patient saved: " + patient.getName());
+		System.out.println("Patient saved: " + patient.getPatientName());
 	}
 
 	public List<Patient> getAllPatients() {

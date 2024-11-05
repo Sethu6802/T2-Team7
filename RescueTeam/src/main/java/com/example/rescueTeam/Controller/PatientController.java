@@ -24,16 +24,19 @@ public class PatientController {
 	@PostMapping("/admit")
 	public String admitPatient(@RequestBody RescueRequest admissionRequest) {
 
+		// Extract SOS message and severity
 		SosMessage sosMessage = admissionRequest.getSosMessage();
 		String severity = admissionRequest.getSeverity();
 		Patient patient = admissionRequest.getPatient();
 
+		// Print the SOS message details (for debugging or auditing)
 		System.out.println("Received SOS message: " + sosMessage);
 		System.out.println("Severity level: " + severity);
 
+		// Check hospital availability and admit the patient
 		if (patientService.isHospitalAvailable()) {
 			patientService.savePatient(patient);
-			return "Patient " + patient.getName() + " admitted successfully with severity: " + severity;
+			return "Patient " + patient.getPatientName() + " admitted successfully with severity: " + severity;
 		} else {
 			return "No hospitals available at this moment.";
 		}
