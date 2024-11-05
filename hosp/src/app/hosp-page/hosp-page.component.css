@@ -49,6 +49,7 @@ h4{
 
 .inner-card:hover {
     box-shadow: 12px 12px 12px 10px rgba(0,0,0,0.2);
+    transform: scale(1.025);
 }
 
 .inner-card{
@@ -58,8 +59,6 @@ h4{
     background-color: #fff;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     padding: 3px 3px 3px 3px;
-    animation: pop 0.1s;
-    transition: box-shadow 0.1s ease-out;
     margin: auto;
     border-radius: 15px;
     overflow: auto;
@@ -79,14 +78,7 @@ h4{
     padding: 2px 16px;
 }
 
-@keyframes pop{
-    0%{
-        transform: scale(1);
-    }
-    50%{
-        transform: scale(2);
-    }
-    100%{
-        transform: scale(3);
-    }
+#patientTable{
+    width: 800px;
+    margin: auto;
 }

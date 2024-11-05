@@ -16,6 +16,26 @@
 
         <div  class = "inner-card">
             <h4>Patient List</h4>
+            <table id="patientTable" border="1">
+                <thead>
+                    <tr>
+                        <th>Patient ID</th>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Damage Severity</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let patient of patients">
+                        <td>{{ patient.patientId }}</td>
+                        <td>{{ patient.patientName }}</td>
+                        <td>{{ patient.age }}</td>
+                        <td>{{ patient.damageSeverity }}</td>
+                        <td>{{ patient.details }}</td>
+                      </tr>
+                </tbody>
+            </table>
         </div><br>
         <div class = "inner-card">
             <h4>Patient Status</h4>
