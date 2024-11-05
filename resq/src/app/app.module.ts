@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ResqPageComponent } from './resq-page/resq-page.component';
-import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -13,8 +12,7 @@ import {MatCardModule} from '@angular/material/card';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    MatCardModule
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
