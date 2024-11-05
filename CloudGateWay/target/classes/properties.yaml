@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: spring-cloud-gateway-app
+
+  cloud:
+    gateway:
+      routes:
+    
+        - id: MessageSystem-route
+          uri: http://localhost:8092
+          predicates:
+            - Path=/message/**
+        - id: RescueTeam-route
+          uri: http://localhost:8094
+          predicates:
+            - Path=/hospital/**
+        - id: HospitalManagement-route
+          uri: http://localhost:8096
+          predicates:
+            - Path=/patient-info/**
+            
+
