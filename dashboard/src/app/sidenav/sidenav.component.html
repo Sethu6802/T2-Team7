@@ -1,0 +1,17 @@
+<div class="sidenav" [ngClass] = "collapsed ? 'sidenav-collapsed' : 'sidenav-uncollapsed' ">
+    <div class="logo-container">
+        <button class="logo" (click) = "toggleCollapse()">DM</button>
+        <div class="logo-text" @fadeInOut *ngIf = "collapsed">Disaster Management</div>
+        <button class="btn-close" *ngIf = "collapsed" (click) = "closeSideBar()">
+            <i class="fal fa-times close-icon"></i>
+        </button>
+    </div>
+    <ul class="sidenav-nav">
+        <li class="nav-item" *ngFor = "let data of navData">
+            <a class="nav-link" [routerLink] = "data.routeLink">
+                <i class="link-icon" [class] = "data.icon"></i>
+                <span class="link-text" @fadeInOut *ngIf = "collapsed">{{data.label}}</span>
+            </a>
+        </li>
+    </ul>
+</div>

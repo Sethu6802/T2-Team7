@@ -3,6 +3,7 @@ package com.example.rescueTeam.Controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,6 +16,7 @@ import com.example.messageSystem.model.SosMessage;
 import com.example.rescueTeam.Services.PatientService;
 import com.example.rescueTeam.model.Patient;
 import com.example.rescueTeam.model.RescueRequest;
+
 @RestController
 @RequestMapping("/hospital")
 @CrossOrigin(origins = "http://localhost:4200")

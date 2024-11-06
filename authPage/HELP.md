@@ -6,11 +6,12 @@ For further reference, please consider the following sections:
 * [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
 * [Spring Boot Maven Plugin Reference Guide](https://docs.spring.io/spring-boot/3.4.0-SNAPSHOT/maven-plugin)
 * [Create an OCI image](https://docs.spring.io/spring-boot/3.4.0-SNAPSHOT/maven-plugin/build-image.html)
+* [OpenFeign](https://docs.spring.io/spring-cloud-openfeign/reference/)
 
-### Guides
-The following guides illustrate how to use some features concretely:
+### Additional Links
+These additional references should also help you:
 
-* [Accessing data with MySQL](https://spring.io/guides/gs/accessing-data-mysql/)
+* [Declarative REST calls with Spring Cloud OpenFeign sample](https://github.com/spring-cloud-samples/feign-eureka)
 
 ### Maven Parent overrides
 
