@@ -28,6 +28,7 @@ public class PatientInfoController {
         return patientInfoService.isHospitalAvailable();
     }
 
+    // Endpoint to set hospital availability
     @PostMapping("/setAvailability")
     public String setAvailability(@RequestParam boolean availability) {
         patientInfoService.setHospitalAvailability(availability);
