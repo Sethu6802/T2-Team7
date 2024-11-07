@@ -9,7 +9,6 @@ import { HospitalComponent } from './hospital/hospital.component';
 import { VolunteerComponent } from './volunteer/volunteer.component';
 import { SettingComponent } from './setting/setting.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
-import { MatIconModule } from  '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -24,8 +23,7 @@ import { MatIconModule } from  '@angular/material/icon';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
-    MatIconModule
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
