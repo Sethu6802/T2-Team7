@@ -31,5 +31,10 @@ public class PatientStatusController {
     public List<PatientStatus> getStatusesForPatient(@PathVariable Long patientId) {
         return patientStatusService.getStatusesForPatient(patientId);
     }
+    
+    @GetMapping("/getAll")
+    public List<PatientStatus> getAllPatientStatuses() {
+        return patientStatusService.getAllPatientStatuses();
+    }
 
 }

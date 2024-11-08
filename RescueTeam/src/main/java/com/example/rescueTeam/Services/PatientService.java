@@ -17,18 +17,20 @@ public class PatientService {
 	@Autowired
 	private PatientRepository patientRepository;
 
-	private final boolean hospitalAvailable = true;
+	private final boolean hospitalAvailable = true; // For simplicity; make dynamic if needed.
 
 	public boolean isHospitalAvailable() {
 		return hospitalAvailable;
 	}
 
 	public void savePatient(Patient patient) {
+		// Save patient to database using repository
 		patientRepository.save(patient);
 		System.out.println("Patient saved: " + patient.getPatientName());
 	}
 
 	public List<Patient> getAllPatients() {
+		// Retrieve all patients from the database
 		return patientRepository.findAll();}
 	
 }

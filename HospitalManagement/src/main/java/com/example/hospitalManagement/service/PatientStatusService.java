@@ -26,5 +26,9 @@ public class PatientStatusService {
                                       .filter(status -> status.getPatient().getId().equals(patientId))
                                       .toList();
     }
+    
+    public List<PatientStatus> getAllPatientStatuses() {
+        return patientStatusRepository.findAll();
+    }
 
 }
