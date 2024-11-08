@@ -1,27 +1,32 @@
 export const navbarData = [
     {
-        routeLink: 'dashboard',
-        icon: 'fal, fa-home',
+        routeLink: 'homePage',
+        icon: 'fas fa-tachometer-alt',  // Font Awesome Icon for Dashboard
         label: 'Dashboard'
     },
     {
         routeLink: 'resq',
-        icon: 'fal, fa-hand-holding',
+        icon: 'fas fa-users',  // Font Awesome Icon for Rescue Team (group of people)
         label: 'Rescue Team'
     },
     {
         routeLink: 'hosp',
-        icon: 'fal, fa-hospital-symbol',
+        icon: 'fas fa-hospital-alt',  // Font Awesome Icon for Hospital
         label: 'Hospital'
     },
     {
         routeLink: 'vol',
-        icon: 'fal, fa-hand-holding',
+        icon: 'fas fa-handshake',  // Font Awesome Icon for Volunteers (representing help)
         label: 'Volunteers'
     },
     {
-        routeLink: 'setting',
-        icon: 'fal, fa-cogs',
-        label: 'Setting'
+        routeLink: 'sos',
+        icon: 'fas fa-phone-alt',  // Font Awesome Icon for SOS (Phone)
+        label: 'SOS'
+    },
+    {
+        routeLink: 'logout',
+        icon: 'fas fa-sign-out-alt',  // Font Awesome Icon for Logout
+        label: 'Logout'
     }
 ];

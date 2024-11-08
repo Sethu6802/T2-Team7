@@ -2,10 +2,14 @@
     <div class="logo-container">
         <button class="logo" (click) = "toggleCollapse()">DM</button>
         <div class="logo-text" @fadeInOut *ngIf = "collapsed">Disaster Management</div>
-        <button class="btn-close" *ngIf = "collapsed" (click) = "closeSideBar()">
-            <i class="fal fa-times close-icon"></i>
-        </button>
+        <div class="btn-close" *ngIf="collapsed" 
+            (click)="closeSideBar()" 
+            [ngClass]="{'spin-animation': collapsed, 'spin-rev': !collapsed}">
+
+            <i class="close-icon">X</i>
+        </div>
     </div>
+
     <ul class="sidenav-nav">
         <li class="nav-item" *ngFor = "let data of navData">
             <a class="nav-link" [routerLink] = "data.routeLink">

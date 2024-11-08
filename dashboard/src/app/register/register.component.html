@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register New User</title>
+    <link rel="stylesheet" href="register.component.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Register</h1>
+
+        <form class="form1" (ngSubmit)="onSubmit()">
+            <!-- Name Input -->
+            <div class="form-group">
+                <input id="fullName" name="fullName" [(ngModel)]="fullName" placeholder="Enter your name" type="text" class="input-field" required>
+            </div>
+
+            <!-- Role Select -->
+            <div class="form-group">
+                <select id="roles" name="roles" [(ngModel)]="roles" class="input-field" required>
+                    <option placeholder="Select a role" value="" disabled selected ></option>
+                    <option value="RescueTeam">Rescue Team</option>
+                    <option value="Hospital">Hospital</option>
+                    <option value="Volunteer">Volunteer Service</option>
+                </select>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="form-group">
+                <button type="submit" class="submit-btn">Submit</button>
+            </div>
+        </form>
+
+        <div class="link">
+            <a routerLink="/login" class="register-link">Existing User? Login Here</a>
+        </div>
+    </div>
+</body>
+</html>
