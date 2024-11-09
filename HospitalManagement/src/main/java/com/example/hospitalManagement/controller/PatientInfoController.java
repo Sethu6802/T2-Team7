@@ -14,7 +14,6 @@ import com.example.hospitalManagement.service.PatientInfoService;
 
 @RestController
 @RequestMapping("/patient-info")
-@CrossOrigin(origins = "http://localhost:8096")
 public class PatientInfoController {
 
     @Autowired
