@@ -34,7 +34,7 @@ public class VolunteerController {
 	        return "Incident reported successfully: " + incidentDetails;
 	    }
 	    
-	 // ======== GET Mappings ========
+	
 
 	    // Get all Service Providers
 	    @GetMapping("/service-providers")
@@ -60,7 +60,7 @@ public class VolunteerController {
 	        return volunteerService.getHelperById(id);
 	    }
      
-	 // ======== PUT (Update) Mappings ========
+	
 
 	    // Update a Service Provider by ID
 	    @PutMapping("/service-provider/{id}")
@@ -74,7 +74,7 @@ public class VolunteerController {
 	        return volunteerService.updateHelper(id, helper);
 	    }
 	    
-	 // ======== DELETE Mappings ========
+	
 
 	    // Delete a Service Provider by ID
 	    @DeleteMapping("/service-provider/{id}")
