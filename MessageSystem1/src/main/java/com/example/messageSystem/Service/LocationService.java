@@ -1,29 +1,28 @@
 package com.example.messageSystem.Service;
+
+import com.example.messageSystem.Repository.sosRepo;
+import com.example.messageSystem.model.SosMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
 
-import com.example.messageSystem.model.SosMessage;
-
-import java.net.InetAddress;
-import java.net.UnknownHostException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Map;
+import java.util.List;
 
 @Service
 public class LocationService {
 
     @Autowired
-    private RestTemplate restTemplate;
+    private sosRepo repo;
+
+    @Autowired
+    private ExternalApiService externalApiService;
 
     private static final DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
-    private static final String IP_API_URL = "https://ipapi.co/{ip}/json/";
-
     public SosMessage createLocationMessage(String location, String clientIp) {
         SosMessage locationMessage = new SosMessage();
-        
+
         String currentTime = LocalDateTime.now().format(dateTimeFormatter);
         locationMessage.setTime(currentTime);
 
@@ -41,46 +40,23 @@ public class LocationService {
                 ", at time: " + locationMessage.getTime();
         locationMessage.setMessage(message);
 
+        repo.save(locationMessage);
+
         return locationMessage;
     }
 
-    
     private String getExternalIp() {
-        try {
-            String url = "https://api.ipify.org";
-            return restTemplate.getForObject(url, String.class);
-        } catch (Exception e) {
-            return "Unable to retrieve external IP";
-        }
+        return externalApiService.getExternalIp()
+                .block();
     }
-
-    private String getLocalHostIp() {
-        try {
-            InetAddress localHost = InetAddress.getLocalHost();
-            String hostAddress = localHost.getHostAddress();
-
-            if (hostAddress.equals("127.0.0.1") || hostAddress.equals("::1")) {
-                return "8.8.8.8";
-            }
-
-            return hostAddress;
-        } catch (UnknownHostException e) {
-            return "IP address not available";
-        }
-    }
-
 
     private String getLocationFromIp(String ipAddress) {
-        try {
-            String url = IP_API_URL.replace("{ip}", ipAddress);
-            Map<String, Object> response = restTemplate.getForObject(url, Map.class);
-
-            if (response != null && response.get("city") != null && response.get("country_name") != null) {
-                return response.get("city") + ", " + response.get("country_name");
-            }
-        } catch (Exception e) {
-            System.out.println("Error retrieving location: " + e.getMessage());
-        }
-        return null;
+        return externalApiService.getLocationFromIp(ipAddress)
+                .block();
+    }
+    
+    public List<SosMessage> getAllMessages()
+    {
+    	return repo.findAll();
     }
 }

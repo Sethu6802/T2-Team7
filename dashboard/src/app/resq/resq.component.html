@@ -14,13 +14,57 @@
             <h3>Victim Dashboard</h3>
         </div>
 
+
+
+
         <div  class = "inner-card">
             <h4>SOS List</h4>  <!--Message System, messagedb-->
+            <table id="sosList" border="1">
+                <thead>
+                    <tr>
+                        <th>Location</th>
+                        <th>IP Address</th>
+                        <th>Time</th>
+                        <th>Message</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let li of sos_list">
+                        <td>{{ li.location }}</td>
+                        <td>{{ li.ipAddress }}</td>
+                        <td>{{ li.time }}</td>
+                        <td>{{ li.message }}</td>
+                    </tr>
+                </tbody>
+            </table>
         </div><br>
         <div class = "inner-card">
             <h4>Victim Status</h4>    <!--rescue team, hospital_db -> patients-->
+            <table id="sosList" border="1">
+                <thead>
+                    <tr>
+                        <th>Patient ID</th>
+                        <th>Patient</th>
+                        <th>Status</th>
+                        <th>Updated Time</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let patientStatus of patient_status">
+                        <td>{{ patientStatus.patient.id }}</td>
+                        <td>{{ patientStatus.patient.name }}</td>
+                        <td>{{ patientStatus.status }}</td>
+                        <td>{{ patientStatus.statusUpdatedTime }}</td>
+                        <td>{{ patientStatus.notes }}</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
+
+
+
 
     <div class = "card2">
         <div class = "small-card">
@@ -29,6 +73,24 @@
 
         <div class = "inner-card">
             <h4>Hospital Status</h4>   <!--rescue team, hospital_info-->
+            <table id="sosList" border="1">
+                <thead>
+                    <tr>
+                        <th>Patient ID</th>
+                        <th>Patient Name</th>
+                        <th>Availability</th>
+                        <th>Number Of Beds</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let h of hosp">
+                        <td>{{ h.hospId }}</td>
+                        <td>{{ h.hospName }}</td>
+                        <td>{{ h.availability }}</td>
+                        <td>{{ h.numberOfBeds }}</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </body>

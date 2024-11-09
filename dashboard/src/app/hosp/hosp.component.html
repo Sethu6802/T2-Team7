@@ -14,6 +14,9 @@
             <h3>Dashboard</h3>
         </div>
 
+
+
+
         <div  class = "inner-card">
             <h4>Patient List</h4>
             <table id="patientTable" border="1">
@@ -37,10 +40,40 @@
                 </tbody>
             </table>
         </div><br>
+
+
+
+
         <div class = "inner-card">
             <h4>Patient Status</h4>
+
+            <table id="patientTable" border="1">
+                <thead>
+                    <tr>
+                        <th>Patient ID</th>
+                        <th>Patient</th>
+                        <th>Status</th>
+                        <th>Updated Time</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let patientStatus of patient_status">
+                        <td>{{ patientStatus.patient.id }}</td>
+                        <td>{{ patientStatus.patient.name }}</td>
+                        <td>{{ patientStatus.status }}</td>
+                        <td>{{ patientStatus.statusUpdatedTime }}</td>
+                        <td>{{ patientStatus.notes }}</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-    </div>
+    </div><br>
+
+
+
+
+
 
     <div class = "card2">
         <div class = "small-card">
@@ -51,5 +84,8 @@
             <h4>Victim Status</h4>
         </div>
     </div>
+
+
+
 </body>
 </html>

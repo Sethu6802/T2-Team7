@@ -3,6 +3,8 @@ package com.example.messageSystem.Controller;
 import com.example.messageSystem.Service.LocationService;
 import com.example.messageSystem.model.SosMessage;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -18,7 +20,6 @@ public class LocationController {
 
     @Autowired
     private final LocationService locationService;
-
     public LocationController(LocationService locationService) {
         this.locationService = locationService;
     }
@@ -29,5 +30,12 @@ public class LocationController {
             @RequestHeader(value = "X-Forwarded-For", required = false) String clientIp) {
 
         return locationService.createLocationMessage(location, clientIp);
+    }
+    
+    @GetMapping("/sendAllMessages")
+    public List<SosMessage> fetchAllMessages()
+    {
+    	return locationService.getAllMessages();
+    
     }
 }
