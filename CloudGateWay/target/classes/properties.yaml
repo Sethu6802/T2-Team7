@@ -18,5 +18,14 @@ spring:
           uri: http://localhost:8096
           predicates:
             - Path=/patient-info/**
+        - id: Volunteer-route
+          uri: http://localhost:8098
+          predicates:
+            - Path= /volunteer/**
             
+           
+            
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
 
