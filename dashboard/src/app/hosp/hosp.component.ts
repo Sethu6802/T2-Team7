@@ -16,6 +16,7 @@ export class HospComponent {
 
   patients: Patient[] = [];
   patient_status: PatientStatus[] = [];
+  yet_to_be_patients: PatientStatus[] = [];
 
   constructor(
     private patientService: PatientService, 
@@ -28,10 +29,16 @@ export class HospComponent {
     });
 
     this.patientStatusService.getAllPatientStatuses().subscribe(
-      (st: PatientStatus[]) => {
-        this.patient_status = st;
+      (stranger: PatientStatus[]) => {
+        this.patient_status = stranger;
       }
     );
+
+    this.patientStatusService.getNotAdmittedPatients().subscribe(
+      (someone: PatientStatus[]) => {
+        this.yet_to_be_patients = someone;
+      }
+    )
 
   }
 }

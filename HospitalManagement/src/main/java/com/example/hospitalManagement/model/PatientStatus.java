@@ -24,13 +24,12 @@ public class PatientStatus {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    // Reference to the Hospital (Patient) entity
     @ManyToOne
     @JoinColumn(name = "patient_id", nullable = false)
     private Hospital patient;
 
-    private String status; // E.g., "admitted," "discharged," "in operation"
-    private LocalDateTime statusUpdatedTime; // Timestamp for status update
+    private String status;
+    private LocalDateTime statusUpdatedTime;
 
     private String notes;
 

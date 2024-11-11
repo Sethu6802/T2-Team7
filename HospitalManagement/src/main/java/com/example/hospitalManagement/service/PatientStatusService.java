@@ -13,13 +13,15 @@ public class PatientStatusService {
 	
 	@Autowired
     private PatientStatusRepository patientStatusRepository;
+	
+	public List<PatientStatus> getNotAdmittedPatients(){
+		return patientStatusRepository.findByStatus("not-admitted");
+	}
 
-    // Save a new patient status
     public PatientStatus savePatientStatus(PatientStatus patientStatus) {
         return patientStatusRepository.save(patientStatus);
     }
 
-    // Retrieve all statuses for a patient
     public List<PatientStatus> getStatusesForPatient(Long patientId) {
         return patientStatusRepository.findAll()
                                       .stream()

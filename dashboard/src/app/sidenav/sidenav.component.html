@@ -12,6 +12,7 @@
 
     <ul class="sidenav-nav">
         <li class="nav-item" *ngFor = "let data of navData">
+            <span class = "tooltip" *ngIf = "!collapsed">{{data.message}}</span>
             <a class="nav-link" [routerLink] = "data.routeLink">
                 <i class="link-icon" [class] = "data.icon"></i>
                 <span class="link-text" @fadeInOut *ngIf = "collapsed">{{data.label}}</span>

@@ -22,6 +22,5 @@ export class AuthService {
         console.error('Error during registration:', error);
       }
     );
-    
   }
 }
