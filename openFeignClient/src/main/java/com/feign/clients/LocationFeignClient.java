@@ -11,13 +11,5 @@ import com.feign.models.SosMessage;
 @FeignClient(name = "location-service", url = "http://localhost:8092")
 public class LocationFeignClient {
 
-	@GetMapping("/sendMessage")
-	SosMessage sendMessage(
-			@RequestParam(required=false) String location,
-			@RequestHeader(value = "X-Forwarded-For",required=false) String clientIp) {
-		
-		
-		return 
-	};
 	
 }

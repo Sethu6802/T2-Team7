@@ -1,5 +1,7 @@
 package com.feign.service;
 
+import javax.tools.JavaFileManager.Location;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -7,6 +9,6 @@ import org.springframework.stereotype.Service;
 public class FeignService {
 
 	@Autowired
-	private Location
+	private Location location;
 	
 }

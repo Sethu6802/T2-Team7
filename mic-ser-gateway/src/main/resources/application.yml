@@ -1,0 +1,28 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: mic-ser-a
+          uri: lb://MIC-SER-A
+          predicates:
+            - Path= /a/info/**
+          filters:
+            - AuthenticationFilter
+            
+        - id: mic-ser-b
+          uri: lb://MIC-SER-A
+          predicates:
+            - Path= /b/info/**
+          filters:
+            - AuthenticationFilter 
+            
+        - id: identity-service
+          uri: lb://IDENTITY-SERVICE
+          predicates:
+            - Path= /auth/**
+  application:
+    name: mic-ser-gateway
+
+server:
+ port: 9895
+ 
