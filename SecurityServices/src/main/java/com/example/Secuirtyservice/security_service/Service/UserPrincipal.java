@@ -24,21 +24,29 @@ public class UserPrincipal implements UserDetails {
 
 
     public UserPrincipal(User_access user) {
+    	
         this.user=user;
     }
+    
+    
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return Collections.singleton(new SimpleGrantedAuthority("USER"));
+        return Collections.singleton(new SimpleGrantedAuthority("Hospital"));
     }
+    
     @Override
     public String getPassword() {
         return user.getPassword();
     }
+    
     @Override
     public String getUsername() {
         return user.getUsername();
     }
+    
+    
+    
     @Override
     public boolean isAccountNonExpired() {
         return true;

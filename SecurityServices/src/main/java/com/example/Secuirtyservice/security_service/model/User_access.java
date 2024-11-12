@@ -13,6 +13,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 public class User_access {
+	
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long id;

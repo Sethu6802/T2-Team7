@@ -1,47 +1,44 @@
 package com.example.Secuirtyservice.security_service.Service;
 
-import java.security.Key;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.stereotype.Service;
 import com.example.Secuirtyservice.security_service.model.User_access;
 import com.example.Secuirtyservice.security_service.repo.UserRepo;
-
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.io.Decoders;
-import io.jsonwebtoken.security.Keys;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
 
 @Service
 public class UserService {
-	
-	
-	private static final String SECERET="5367566B59703373367639792F423F4528482B4D6251655468576D5A71347437";
+
     @Autowired
-    private UserRepo repo;
-    private BCryptPasswordEncoder encoder =new BCryptPasswordEncoder(12);
+    private UserRepo userRepo;
+    
+    @Autowired
+    private jwtService jwtService;
+    
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
-
-    public User_access register(User_access user) {
-        user.getPassword();//some action left
-         repo.save(user);
-        return  user;
+    public String register(User_access user) {
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        userRepo.save(user);
+        return "User added to the system";
     }
-    public String verify(String user)
-    {
 
-            return jwtService.generatedToken(user);
-
+    public String generateToken(String username) {
+        return jwtService.generatedToken(username);
     }
-	public boolean validatetoken(String token) {
-		return Jwts.parserBuilder().setSigningKey(getkey()).build().parseClaimsJws(token) != null;
-	}
-	
-private static Key getkey() {
-		
-		byte[] bytes = Decoders.BASE64.decode(SECERET);
-		
-		return Keys.hmacShaKeyFor(bytes);
-		
-	}
+
+
+    public void validateToken(String token) {
+        UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        
+        boolean isValid = jwtService.validateToken(token, userDetails);
+        if (!isValid) {
+            throw new IllegalArgumentException("Invalid token or user mismatch");
+        }
+    }
+
+
 }

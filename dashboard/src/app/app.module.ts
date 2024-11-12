@@ -4,7 +4,7 @@ import { BrowserAnimationsModule } from  '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 
 import { HomePageComponent } from './home-page/home-page.component';
@@ -17,6 +17,7 @@ import { ErrorComponent } from './error/error.component';
 import { registerComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { SosComponent } from './sos/sos.component';
+import { AuthInterceptor } from './auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,9 @@ import { SosComponent } from './sos/sos.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 

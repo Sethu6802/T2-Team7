@@ -3,8 +3,6 @@ import { Patient } from '../patient.model';
 import { PatientService } from '../patient.service';
 import { PatientStatus } from '../PatientStatus.model';
 import { PatientStatusService } from '../patient-status.service';
-import { SosListService } from '../sos-list.service';
-import { sosMessage } from '../SosMessage.model';
 
 @Component({
   selector: 'app-hosp',
@@ -29,14 +27,20 @@ export class HospComponent {
     });
 
     this.patientStatusService.getAllPatientStatuses().subscribe(
-      (stranger: PatientStatus[]) => {
+      next=> (stranger: PatientStatus[]) => {
         this.patient_status = stranger;
+      },
+      error=> {
+        console.error("Error Occurred: " + error);
       }
     );
 
     this.patientStatusService.getNotAdmittedPatients().subscribe(
-      (someone: PatientStatus[]) => {
+      next=> (someone: PatientStatus[]) => {
         this.yet_to_be_patients = someone;
+      },
+      error=>{
+        console.error("Error Occurred: " + error);
       }
     )
 

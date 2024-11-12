@@ -17,6 +17,7 @@ public class UserEntity {
 	private long id;
 	
 	private String fullName;
+	private String password;
 	private String roles;
 	
 }

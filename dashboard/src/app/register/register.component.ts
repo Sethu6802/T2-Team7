@@ -9,11 +9,12 @@ import { AuthService } from '../auth.service';
 
 export class registerComponent {
   fullName: string = '';
+  password: string = ''; 
   roles: string = '';
 
   constructor(private authService: AuthService){}
 
   onSubmit(){
-    this.authService.register(this.fullName,this.roles);
+    this.authService.register(this.fullName,this.password);
   }
 }

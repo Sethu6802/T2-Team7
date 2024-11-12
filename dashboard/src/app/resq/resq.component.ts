@@ -26,22 +26,25 @@ export class ResqComponent {
 
   ngOnInit(): void {
     this.soslistService.getSosList().subscribe(
-      (item: sosMessage[]) => {
+      next=> (item: sosMessage[]) => {
         console.log(item);
         this.sos_list = item;
-      }
+      },
+      error => console.error('Error:', error)
     )
 
     this.patientStatusService.getAllPatientStatuses().subscribe(
-      (st: PatientStatus[]) => {
+      next=> (st: PatientStatus[]) => {
         this.patient_status = st;
-      }
+      },
+      error => console.error('Error:', error)
     );
 
     this.hospInfoService.getHospInfo().subscribe(
-      (i: Hospital[]) => {
+      next=> (i: Hospital[]) => {
         this.hosp = i;
-      }
+      },
+      error=> console.error('Error:', error)
     )
   }
 }

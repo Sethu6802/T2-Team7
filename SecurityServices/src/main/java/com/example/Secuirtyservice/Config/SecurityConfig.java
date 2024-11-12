@@ -10,42 +10,49 @@ import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+
 import com.example.Secuirtyservice.security_service.Service.MyUserDetailsService;
+
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
 
-   @Autowired
-   private MyUserDetailsService userDetailsService;
+    @Autowired
+    private MyUserDetailsService myUserDetailsService;
 
-   @Bean
+    @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-       return
-                http
-                        .csrf(customizer->customizer.disable())
-                        .authorizeHttpRequests(request->request.anyRequest().permitAll())
-                        .httpBasic(Customizer.withDefaults())
-                        .build();
+        return http
+                .csrf(csrf -> csrf.disable()) // Disable CSRF for simplicity
+                .authorizeHttpRequests(request -> request
+                        .requestMatchers("/user/register").permitAll()  // Allow access to registration without authentication
+                        .requestMatchers("/user/login").permitAll()     // Allow access to login without authentication
+                        .anyRequest().authenticated()  // Require authentication for all other requests
+                )
+                .httpBasic(Customizer.withDefaults())  // If you want basic authentication
+                .formLogin(Customizer.withDefaults())  // If you want form login
+                .build();
+    }
 
-   }
     @Bean
     public AuthenticationProvider authenticationProvider() {
-        DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
-        provider.setPasswordEncoder(new BCryptPasswordEncoder());
-        provider.setUserDetailsService(userDetailsService);
-
-
-        return provider;
+        DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
+        authProvider.setUserDetailsService(myUserDetailsService);
+        authProvider.setPasswordEncoder(passwordEncoder());
+        return authProvider;
     }
 
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
         return config.getAuthenticationManager();
+    }
 
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
     }
 }

@@ -1,31 +1,30 @@
 spring:
-  application:
-    name: spring-cloud-gateway-app
-
   cloud:
     gateway:
-      routes:
-    
-        - id: MessageSystem-route
-          uri: http://localhost:8092
-          predicates:
-            - Path=/message/**
-        - id: RescueTeam-route
-          uri: http://localhost:8094
-          predicates:
-            - Path=/hospital/**
-        - id: HospitalManagement-route
-          uri: http://localhost:8096
-          predicates:
-            - Path=/patient-info/**
-        - id: Volunteer-route
-          uri: http://localhost:8098
-          predicates:
-            - Path= /volunteer/**
-            
-           
-            
-logging:
-  level:
-    org.springframework.cloud.gateway: DEBUG
+      globalcors:
+        add-to-simple-url-handler-mapping: true
 
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+              - PATCH
+              - OPTIONS
+            allowedHeaders:
+              - "Origin"
+              - "Content-Type"
+              - "Accept"
+              - "Authorization"
+              - "User-Key"
+              - "Request-Tracker"
+              - "Session-Tracker"
+              - "X-XSRF-TOKEN"
+              - "X-IBM-CLIENT-ID"
+              - "Message-ID"
+              - "X-IBM-CLIENT-SECRET"
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin, RETAIN_FIRST

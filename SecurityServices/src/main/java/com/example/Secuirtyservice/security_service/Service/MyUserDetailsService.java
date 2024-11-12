@@ -12,15 +12,25 @@ import com.example.Secuirtyservice.security_service.model.User_access;
 
 @Service
 public class MyUserDetailsService implements UserDetailsService {
+	
     @Autowired
     private UserRepo repo;
 
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        System.out.println("Received username: " + username);
+
+        if (username == null || username.trim().isEmpty()) {
+            throw new UsernameNotFoundException("Username is null or empty");
+        }
+
         User_access user = repo.findByUsername(username);
-        System.out.println(user);
+
         if (user == null) {
             System.out.println("user not found");
+            throw new UsernameNotFoundException("User not found with username: " + username);
         }
+
         return new UserPrincipal(user);
     }
+
 }
