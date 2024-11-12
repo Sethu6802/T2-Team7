@@ -21,7 +21,7 @@ import com.example.Secuirtyservice.security_service.model.User_access;
 
 @RestController
 @RequestMapping("/user")
-@CrossOrigin
+@CrossOrigin("*")
 public class UserController {
 
     @Autowired
@@ -34,10 +34,10 @@ public class UserController {
     PasswordEncoder passwordEncoder;
     
     @PostMapping("/register")
-    public String register(@RequestBody User_access user)
+    public User_access register(@RequestBody User_access user)
     {
-    	 System.out.println(user.toString());
-        return userService.register(user);
+    	userService.register(user);
+    	return user;
     }
     
     

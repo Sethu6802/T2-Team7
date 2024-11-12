@@ -12,19 +12,11 @@ export class LoginComponent {
 
   username: string = '';
   password: string = '';
+  role: string = '';
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authService: AuthService) {}
   
   onLogin() {
-    this.authService.login(this.username, this.password).subscribe(
-      (response) => {
-        const token = response.token;
-        this.authService.setToken(token);
-        this.router.navigate(['/dashboard']);
-      },
-      (error) => {
-        console.error('Login failed', error);
-      }
-    );
+    this.authService.login(this.username,this.password,this.role);
   }
 }

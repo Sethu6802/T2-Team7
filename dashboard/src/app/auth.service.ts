@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -8,13 +9,13 @@ import { Observable } from 'rxjs';
 
 export class AuthService {
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient, private router: Router) { }
 
   register(fullName: string, password: string){
     let url = "http://localhost:8072/user/register";
-    let jsonRequestBody: any = {fullName: fullName, password: password};
+    let jsonRequestBody: any = {username: fullName, password: password};
     console.log("Name: " + fullName);
-    console.log("Password: "+password);
+    console.log("Password: " + password);
   
     this.httpClient.post(url, jsonRequestBody).subscribe(
       response => {
@@ -24,6 +25,33 @@ export class AuthService {
         console.error('Error during registration:', error);
       }
     );
+
+  }
+
+  login(fullName: string, password: string, role: string){
+    let apiUrl = "http://localhost:8072/user/login";
+    let jsonRequestBody: any = {username: fullName, password: password};
+    console.log("Name: " + fullName);
+    console.log("Password: " + password);
+  
+    this.httpClient.post(apiUrl, jsonRequestBody).subscribe(
+      response => {
+        console.log('Login successful:', response);
+        if(role=='RescueTeam'){
+          this.router.navigate(['/resq']);
+        } else if(role=='Hospital'){
+          this.router.navigate(['/hosp']);
+        } else if(role=='Volunteer'){
+          this.router.navigate(['/vol']);
+        } else{
+          this.router.navigate(['/resq']);
+        }
+      },
+      error => {
+        console.error('Error during login:', error);
+      }
+    );
+    
   }
 
 
@@ -31,9 +59,6 @@ export class AuthService {
   private apiUrl = 'http://localhost:8072/user/login';
 
 
-  login(username: string, password: string): Observable<any> {
-    return this.httpClient.post<any>(this.apiUrl, { username, password });
-  }
 
   getToken(): string | null {
     return localStorage.getItem('token');

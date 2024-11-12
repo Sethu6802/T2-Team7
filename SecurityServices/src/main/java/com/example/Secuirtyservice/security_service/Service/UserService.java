@@ -20,10 +20,10 @@ public class UserService {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    public String register(User_access user) {
+    public void register(User_access user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setUsername(user.getUsername());
         userRepo.save(user);
-        return "User added to the system";
     }
 
     public String generateToken(String username) {

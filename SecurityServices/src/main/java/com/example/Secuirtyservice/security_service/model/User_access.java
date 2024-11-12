@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 public class User_access {
 	
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String username;
     private String password;
