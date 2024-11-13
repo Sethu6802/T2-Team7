@@ -101,4 +101,12 @@ export class ResqComponent implements OnInit {
       }
     });
   }
+
+  openAddStatusForm(){
+    this.showAddStatusForm = true;
+  }
+
+  closeAddStatusForm(){
+    this.showAddStatusForm = false;
+  }
 }

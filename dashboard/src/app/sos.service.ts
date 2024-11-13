@@ -9,7 +9,7 @@ export class SosService {
   constructor(private http: HttpClient) {}
 
   sendMessage(){
-    let url = 'http://localhost:8072/sos1/sendMessage';
+    let url = 'http://localhost:8092/sos1/sendMessage';
     // const headers = new HttpHeaders({
     //   'X-Forwarded-For': '8.8.8.8' 
     // });

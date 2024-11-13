@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { navbarData } from '../sidenav/navData';
 
 @Component({
   selector: 'app-home-page',

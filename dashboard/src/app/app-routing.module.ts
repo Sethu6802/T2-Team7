@@ -12,6 +12,7 @@ import { registerComponent } from './register/register.component';
 import { ReportComponent } from './report/report.component';
 import { HelperFormComponent } from './helper-form/helper-form.component';
 import { ServiceProviderFormComponent } from './service-provider-form/service-provider-form.component';
+import { VictimStatusFormModalComponent } from './victim-status-form-modal/victim-status-form-modal.component';
 
 const routes: Routes = [
 
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path: "report", component: ReportComponent},
   { path: "helper-form", component: HelperFormComponent},
   { path: "register-service-provider", component: ServiceProviderFormComponent},
+  {path:"victim-status",component:VictimStatusFormModalComponent},
   { path: "**", component: ErrorComponent}  
 
 ];

@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from  '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 
@@ -21,6 +21,8 @@ import { AuthInterceptor } from './auth.interceptor';
 import { ReportComponent } from './report/report.component';
 import { ServiceProviderFormComponent } from './service-provider-form/service-provider-form.component';
 import { HelperFormComponent } from './helper-form/helper-form.component';
+import { VictimStatusFormModalComponent } from './victim-status-form-modal/victim-status-form-modal.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,7 @@ import { HelperFormComponent } from './helper-form/helper-form.component';
     SosComponent,
     ReportComponent,
     ServiceProviderFormComponent,
+    VictimStatusFormModalComponent,
     HelperFormComponent
   ],
   imports: [
@@ -44,6 +47,8 @@ import { HelperFormComponent } from './helper-form/helper-form.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
+    ReactiveFormsModule,
+    RouterModule,
     HttpClientModule
   ],
   providers: [

@@ -21,7 +21,7 @@ export class ServiceProviderFormComponent {
     this.serviceProviderService.registerServiceProvider(serviceProviderData)
       .subscribe((response: any) => {
         console.log('Service Provider registered:', response);
-        this.router.navigate(['/']); // Redirect after successful registration
+        this.router.navigate(['/vol']); // Redirect after successful registration
       }, (error: any) => {
         console.error('Error registering Service Provider:', error);
       });

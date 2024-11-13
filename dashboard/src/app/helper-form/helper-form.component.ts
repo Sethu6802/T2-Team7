@@ -8,24 +8,25 @@ import { HelperService } from '../helper.service';
   templateUrl: './helper-form.component.html',
   styleUrls: ['./helper-form.component.css']
 })
+
 export class HelperFormComponent {
 
 
-constructor(private helperService: HelperService, private router: Router) {}
+  constructor(private helperService: HelperService, private router: Router) {}
 
-onSubmit(formData: any) {
-  const helperData = {
-    name: formData.name,
-    availabilityStatus: formData.availabilityStatus
-  };
+  onSubmit(formData: any) {
+    const helperData = {
+      name: formData.name,
+      availabilityStatus: formData.availabilityStatus
+    };
 
-  this.helperService.registerHelper(helperData)
-    .subscribe(response => {
-      console.log('Helper registered:', response);
-      this.router.navigate(['/']);
-    }, error => {
-      console.error('Error registering helper:', error);
-    });
-}
+    this.helperService.registerHelper(helperData)
+      .subscribe(response => {
+        console.log('Helper registered:', response);
+        this.router.navigate(['/vol']);
+      }, error => {
+        console.error('Error registering helper:', error);
+      });
+  }
 }
 
