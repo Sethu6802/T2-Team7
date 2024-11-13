@@ -18,6 +18,9 @@ import { registerComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { SosComponent } from './sos/sos.component';
 import { AuthInterceptor } from './auth.interceptor';
+import { ReportComponent } from './report/report.component';
+import { ServiceProviderFormComponent } from './service-provider-form/service-provider-form.component';
+import { HelperFormComponent } from './helper-form/helper-form.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,10 @@ import { AuthInterceptor } from './auth.interceptor';
     ErrorComponent,
     registerComponent,
     LoginComponent,
-    SosComponent
+    SosComponent,
+    ReportComponent,
+    ServiceProviderFormComponent,
+    HelperFormComponent
   ],
   imports: [
     BrowserModule,

@@ -8,11 +8,11 @@ import { Hospital } from './hospitalInfo.model';
 })
 export class HospInfoService {
 
-  private apiUrl = 'http://localhost:8072/hospitalsInfo/all';
+  private apiUrl = 'http://localhost:8072/hospitalsInfo/';
 
   constructor(private http: HttpClient) { }
 
   getHospInfo(): Observable<Hospital[]> {
-    return this.http.get<Hospital[]>(this.apiUrl);
+    return this.http.get<Hospital[]>(this.apiUrl+"all");
   }
 }

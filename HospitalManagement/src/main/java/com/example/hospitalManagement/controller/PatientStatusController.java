@@ -1,5 +1,9 @@
 package com.example.hospitalManagement.controller;
 
+
+
+
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,16 +26,18 @@ public class PatientStatusController {
 	@Autowired
     private PatientStatusService patientStatusService;
 
+    
     @PostMapping("/add")
     public PatientStatus addPatientStatus(@RequestBody PatientStatus patientStatus) {
+    	patientStatus.setStatusUpdatedTime(LocalDateTime.now()); 
         return patientStatusService.savePatientStatus(patientStatus);
     }
-    
+
     @GetMapping("/getNotAdmitted")
     public List<PatientStatus> getAllNotAdmitted(){
     	return patientStatusService.getNotAdmittedPatients();
     }
-
+ 
     @GetMapping("/getAllForPatient/{patientId}")
     public List<PatientStatus> getStatusesForPatient(@PathVariable Long patientId) {
         return patientStatusService.getStatusesForPatient(patientId);

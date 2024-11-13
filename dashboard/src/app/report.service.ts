@@ -16,7 +16,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ReportService {
-  private apiUrl = 'http://localhost:8092/message//submitMessage';
+  private apiUrl = 'http://localhost:8072/message//submitMessage';
 
   constructor(private http: HttpClient) {}
 

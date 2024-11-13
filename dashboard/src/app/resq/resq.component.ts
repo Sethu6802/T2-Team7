@@ -25,26 +25,33 @@ export class ResqComponent {
   ){}
 
   ngOnInit(): void {
-    this.soslistService.getSosList().subscribe(
-      next => (item: sosMessage[]) => {
-        console.log(item);
-        this.sos_list = item;
+    this.soslistService.getSosList().subscribe({
+      next: (sosMessages: any[]) => {
+        console.log(sosMessages);
+        this.sos_list = sosMessages;
       },
-      error => console.error('Error:', error)
-    )
+      error: (err) => {
+        console.error('Error fetching SOS list:', err);
+      }
+    });
+    
 
-    this.patientStatusService.getAllPatientStatuses().subscribe(
-      next=> (st: PatientStatus[]) => {
-        this.patient_status = st;
+    this.patientStatusService.getAllPatientStatuses().subscribe({
+      next: (patientStatuses: PatientStatus[]) => {
+        this.patient_status = patientStatuses;
       },
-      error => console.error('Error:', error)
-    );
+      error: (err) => {
+        console.error('Error fetching patient statuses:', err);
+      }
+    });
 
-    this.hospInfoService.getHospInfo().subscribe(
-      next=> (i: Hospital[]) => {
-        this.hosp = i;
+    this.hospInfoService.getHospInfo().subscribe({
+      next: (hospitalInfo: Hospital[]) => {
+        this.hosp = hospitalInfo;
       },
-      error=> console.error('Error:', error)
-    )
+      error: (err) => {
+        console.error('Error fetching hospital info:', err);
+      }
+    });
   }
 }

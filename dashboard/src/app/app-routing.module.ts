@@ -9,6 +9,9 @@ import { logoutComponent } from './logout/logout.component';
 import { SosComponent } from './sos/sos.component';
 import { VolComponent } from './vol/vol.component';
 import { registerComponent } from './register/register.component';
+import { ReportComponent } from './report/report.component';
+import { HelperFormComponent } from './helper-form/helper-form.component';
+import { ServiceProviderFormComponent } from './service-provider-form/service-provider-form.component';
 
 const routes: Routes = [
 
@@ -21,6 +24,9 @@ const routes: Routes = [
   { path: "sos", component: SosComponent},
   { path: "homePage", component: HomePageComponent},
   { path: "vol", component: VolComponent},
+  { path: "report", component: ReportComponent},
+  { path: "helper-form", component: HelperFormComponent},
+  { path: "register-service-provider", component: ServiceProviderFormComponent},
   { path: "**", component: ErrorComponent}  
 
 ];

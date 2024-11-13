@@ -8,11 +8,11 @@ import { Patient } from './patient.model';
 })
 export class PatientService {
 
-  private apiUrl = 'http://localhost:8072/hospital/patients';
+  private apiUrl = 'http://localhost:8072/hospital/';
 
   constructor(private http: HttpClient) { }
 
   getPatients(): Observable<Patient[]> {
-    return this.http.get<Patient[]>(this.apiUrl);
+    return this.http.get<Patient[]>(this.apiUrl+"patients");
   }
 }

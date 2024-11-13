@@ -26,14 +26,18 @@ export class HospComponent {
       this.patients = data;
     });
 
-    this.patientStatusService.getAllPatientStatuses().subscribe(
-      next=> (stranger: PatientStatus[]) => {
-        this.patient_status = stranger;
+    this.patientStatusService.getAllPatientStatuses().subscribe({
+      next: (patientStatuses: PatientStatus[]) => {
+        console.log("Patient statuses:", patientStatuses);
+        this.patient_status = patientStatuses;
       },
-      error=> {
-        console.error("Error Occurred: " + error);
+      error: (err) => {
+        console.error("Error occurred:", err);
       }
-    );
+    });
+    
+
+    
 
     this.patientStatusService.getNotAdmittedPatients().subscribe(
       next=> (someone: PatientStatus[]) => {
