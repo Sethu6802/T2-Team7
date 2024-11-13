@@ -9,3 +9,4 @@ import com.example.volunteer.model.ServiceProvider;
 public interface ServiceProviderRepository extends JpaRepository<ServiceProvider, Long> {
 
 }
+

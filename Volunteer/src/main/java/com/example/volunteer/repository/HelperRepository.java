@@ -9,3 +9,5 @@ import com.example.volunteer.model.Helper;
 public interface HelperRepository extends JpaRepository<Helper, Long> {
 
 }
+
+
