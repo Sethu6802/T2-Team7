@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 @RestController
 @RequestMapping("/hospital")
-@CrossOrigin(origins = "http://localhost:8094")
+@CrossOrigin
 public class HospitalController {
 	
 	 @Autowired

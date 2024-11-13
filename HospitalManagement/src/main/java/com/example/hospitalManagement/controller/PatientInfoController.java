@@ -14,6 +14,7 @@ import com.example.hospitalManagement.service.PatientInfoService;
 
 @RestController
 @RequestMapping("/patient-info")
+@CrossOrigin
 public class PatientInfoController {
 
     @Autowired

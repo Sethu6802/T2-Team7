@@ -21,7 +21,7 @@ import com.example.Secuirtyservice.security_service.model.User_access;
 
 @RestController
 @RequestMapping("/user")
-@CrossOrigin("*")
+@CrossOrigin
 public class UserController {
 
     @Autowired

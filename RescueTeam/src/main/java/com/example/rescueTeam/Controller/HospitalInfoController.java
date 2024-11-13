@@ -18,7 +18,7 @@ import com.example.rescueTeam.model.Hospital;
 
 @RestController
 @RequestMapping("/hospitalsInfo")
-@CrossOrigin(origins = "http://localhost:8094")
+@CrossOrigin
 public class HospitalInfoController {
 	
 	 @Autowired

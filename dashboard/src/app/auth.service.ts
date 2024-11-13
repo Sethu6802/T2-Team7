@@ -26,6 +26,8 @@ export class AuthService {
       }
     );
 
+    this.router.navigate(['/login']);
+
   }
 
   login(fullName: string, password: string, role: string){
@@ -34,23 +36,24 @@ export class AuthService {
     console.log("Name: " + fullName);
     console.log("Password: " + password);
   
-    this.httpClient.post(apiUrl, jsonRequestBody).subscribe(
-      response => {
-        console.log('Login successful:', response);
-        if(role=='RescueTeam'){
-          this.router.navigate(['/resq']);
-        } else if(role=='Hospital'){
-          this.router.navigate(['/hosp']);
-        } else if(role=='Volunteer'){
-          this.router.navigate(['/vol']);
-        } else{
-          this.router.navigate(['/resq']);
-        }
+    this.httpClient.post(apiUrl, jsonRequestBody, {responseType: 'text'}).subscribe(
+      next => {
+        console.log('Login successful:', next);
       },
       error => {
         console.error('Error during login:', error);
       }
     );
+
+    if(role=='RescueTeam'){
+      this.router.navigate(['/resq']);
+    } else if(role=='Hospital'){
+      this.router.navigate(['/hosp']);
+    } else if(role=='Volunteer'){
+      this.router.navigate(['/vol']);
+    } else{
+      this.router.navigate(['/resq']);
+    }
     
   }
 

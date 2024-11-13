@@ -15,12 +15,12 @@
             <!-- Inline Label Design -->
             <div class="form-group">
                 <label for="name">Name</label>
-                <input id="name" name="name" placeholder="Enter your name" type="text" class="input-field" required>
+                <input id="name" name="name" [(ngModel)]="username" placeholder="Enter your name" type="text" class="input-field" required>
             </div>
 
             <div class="form-group">
                 <label for="password">Password</label>
-                <input id="password" name="password" placeholder="Enter your password" type="text" class="input-field" required>
+                <input id="password" name="password" [(ngModel)]="password" placeholder="Enter your password" type="text" class="input-field" required>
             </div>
 
             
@@ -28,7 +28,7 @@
             <div class="form-group">
                 
                 <label for="role">Select a Role</label>
-                <select id="role" name="role" class="input-field" required>
+                <select id="role" name="role" [(ngModel)]="role" class="input-field" required>
                     <option value="" disabled selected>Select your role</option>
                     <option value="RescueTeam">Rescue Team</option>
                     <option value="Hospital">Hospital</option>

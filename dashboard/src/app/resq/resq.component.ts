@@ -26,7 +26,7 @@ export class ResqComponent {
 
   ngOnInit(): void {
     this.soslistService.getSosList().subscribe(
-      next=> (item: sosMessage[]) => {
+      next => (item: sosMessage[]) => {
         console.log(item);
         this.sos_list = item;
       },

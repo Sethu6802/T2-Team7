@@ -8,7 +8,7 @@ import { Hospital } from './hospitalInfo.model';
 })
 export class HospInfoService {
 
-  private apiUrl = 'http://localhost:8094/hospitalsInfo/all';
+  private apiUrl = 'http://localhost:8072/hospitalsInfo/all';
 
   constructor(private http: HttpClient) { }
 

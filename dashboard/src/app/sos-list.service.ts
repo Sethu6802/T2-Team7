@@ -8,11 +8,11 @@ import { sosMessage } from './SosMessage.model';
 })
 export class SosListService {
 
-  private apiUrl = 'http://localhost:8092/sendAllMessages';
+  private apiUrl = 'http://localhost:8072/sendAllMessages';
 
   constructor(private http: HttpClient) { }
 
-  getSosList(): Observable<sosMessage[]> {
-    return this.http.get<sosMessage[]>(this.apiUrl);
+  getSosList() {
+    return this.http.get(this.apiUrl);
   }
 }
