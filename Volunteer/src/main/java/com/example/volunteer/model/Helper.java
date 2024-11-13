@@ -23,3 +23,4 @@ public class Helper {
 	    private String availabilityStatus;
 
 }
+
