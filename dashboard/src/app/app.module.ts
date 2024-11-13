@@ -23,6 +23,7 @@ import { ServiceProviderFormComponent } from './service-provider-form/service-pr
 import { HelperFormComponent } from './helper-form/helper-form.component';
 import { VictimStatusFormModalComponent } from './victim-status-form-modal/victim-status-form-modal.component';
 import { RouterModule } from '@angular/router';
+import { PatientStatusFormModalComponent } from './patient-status-form-modal/patient-status-form-modal.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { RouterModule } from '@angular/router';
     ReportComponent,
     ServiceProviderFormComponent,
     VictimStatusFormModalComponent,
-    HelperFormComponent
+    HelperFormComponent,
+    PatientStatusFormModalComponent
   ],
   imports: [
     BrowserModule,

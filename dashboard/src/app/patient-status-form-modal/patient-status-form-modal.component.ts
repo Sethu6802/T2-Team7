@@ -7,6 +7,7 @@ import { PatientStatusService } from '../patient-status.service';  // Assuming t
   templateUrl: './patient-status-form-modal.component.html',
   styleUrls: ['./patient-status-form-modal.component.css']
 })
+
 export class PatientStatusFormModalComponent {
   @Output() close = new EventEmitter<void>(); // Event emitter to close the modal
   patientStatusForm: FormGroup;
@@ -24,11 +25,7 @@ export class PatientStatusFormModalComponent {
   onSubmit() {
     if (this.patientStatusForm.valid) {
       const formData = this.patientStatusForm.value;
-      this.patientStatusService.addPatientStatus(formData).subscribe(() => {
-        console.log('Patient status updated:', formData);
-        this.patientStatusForm.reset(); // Reset the form after successful submission
-        this.close.emit(); // Emit event to close modal
-      });
+      this.patientStatusService.addPatientStatus(formData);
     }
   }
 

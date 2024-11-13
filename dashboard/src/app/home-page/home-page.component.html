@@ -1,98 +1,231 @@
-<div id="webcrumbs" class="min-h-screen flex items-center justify-center">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Disaster Response Hub</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #f3f4f6;
+      font-family: Arial, sans-serif;
+    }
+    #webcrumbs {
+      width: 100%;
+      max-width: 1200px;
+      background-color: #ffffff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      overflow-x: auto;
+      padding-top: 80px;
+      position: relative;
+    }
+    header {
+      margin-left: 80px;
+      width: 100%;
+      background-color: #171718;
+      position: fixed;
+      top: 0;
+      left: 0;
+      border-bottom: 2px solid #4b4b4b;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 32px;
+    }
+    header img {
+      width: 20px;
+      height: 20px;
+      width: 80%;
+      border-radius: 50%;
+      object-fit: contain;
+    }
+    header h1 {
+      font-size: 2rem;
+      color: #ffffff;
+      font-weight: bold;
+    }
+    .flash-news {
+      width: 30%;
+      background-color: #dc2626;
+      color: #ffffff;
+      justify-content: space-between;
+      align-items: center;
+      display: flex;
+      padding: 16px 32px;
+      margin-left: 50px;
+      margin-top: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      position:static;
+      left: 0;
+      width: 100%;
+      z-index: 20;
+    }
+    .flash-news span {
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: 1.125rem;
+      letter-spacing: 0.05em;
+    }
+    .flash-news marquee {
+      font-size: 1rem;
+      font-weight: 500;
+    }
+    .flash-news button {
+      font-size: 1rem;
+      font-weight: bold;
+      background-color: #9b1c1c;
+      margin-right: 40px;
+      padding: 8px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      border: none;
+      color: #ffffff;
+    }
+    .flash-news button:hover {
+      background-color: #b91c1c;
+    }
+    .content {
+      padding: 32px;
+      margin-left: 30px;
+      text-align: center;
+    }
+    .content h1 {
+      font-size: 1.875rem;
+      color: #1f2937;
+      font-weight: 600;
+      margin-bottom: 32px;
+    }
+    section {
+      border-radius: 8px;
+      border: 1px solid #d1d5db;
+      padding: 24px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+      margin-bottom: 32px;
+      display: flex;
+      align-items: center;
+      background-color: #f0fdf4; /* Green shade */
+    }
+    section:nth-child(even) {
+      background-color: #f3e8ff; /* Purple shade */
+    }
+    section img {
+      width: 200px;
+      height: 200px;
+      border-radius: 8px;
+      object-fit: cover;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin-right: 32px;
+    }
+    section h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #065f46;
+      margin-bottom: 16px;
+    }
+    section:nth-child(even) h3 {
+      color: #6b21a8;
+    }
+    .card {
+      background-color: #ffffff;
+      padding: 50px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+      border: 1px solid #e5e7eb;
+    }
+    .card p, .card ul {
+      color: #4b5563;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+    .card ul {
+      list-style-type: disc;
+      padding-left: 20px;
+    }
+  </style>
+</head>
+<body>
 
-  <!-- Main Container -->
-  <div class="w-full max-w-[1200px] bg-white shadow-lg rounded-lg overflow-x-auto pt-[80px] pb-[80px]">
+<div id="webcrumbs">
 
-    <!-- Header (Fixed at the top) -->
-    <header class="w-full bg-gray-800 z-10 border-b border-gray-700 fixed top-0 left-0">
-      <div class="flex justify-between items-center py-5 px-8">
-        <div class="flex items-center gap-4">
-          <img
-            src="https://tools-api.webcrumbs.org/image-placeholder/100/100/doodles/1"
-            alt="Platform Logo"
-            class="w-[60px] h-[60px] object-contain rounded-full"
-          />
-          <h1 class="text-4xl font-bold text-white">Disaster Response Hub</h1>
-        </div>
-      </div>
-    </header>
-
-    <!-- Page Content -->
-    <div class="px-8 py-4 mt-[100px]">
-      <h1 class="text-3xl text-gray-800 font-semibold text-center mb-8">
-        Emergency Response Dashboard
-      </h1>
-
-      <div class="space-y-8">
-
-        <!-- First Aid Treatment Section -->
-        <section class="rounded-lg border border-gray-300 p-6 shadow-md bg-gray-50">
-          <div class="flex items-center space-x-8">
-            <img src="https://th.bing.com/th?id=OIP.ohDbP_PIyH8RoLBYvQKzPgHaHa&w=250&h=250&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2" alt="First Aid" class="w-[200px] h-[200px] object-cover rounded-md shadow-md">
-            <div class="flex-1">
-              <h3 class="text-xl font-semibold text-gray-700">First Aid Guidelines</h3>
-              <div class="mt-4 bg-white p-4 rounded-md shadow-sm border border-gray-200">
-                <p class="text-gray-600">
-                  1. Apply pressure to stop bleeding. <br />
-                  2. Immobilize fractured areas. <br />
-                  3. Administer CPR for unresponsive individuals. <br />
-                  4. Manage shock by keeping victims warm and calm. <br />
-                  5. Perform basic wound cleaning and dressing.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Emergency Contact Information Section -->
-        <section class="rounded-lg border border-gray-300 p-6 shadow-md bg-gray-50">
-          <div class="flex items-center space-x-8">
-            <img src="https://th.bing.com/th?id=OIP.TQNpoC-3A1M6-U2lQHYZkAHaGP&w=272&h=229&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2" alt="Emergency Contacts" class="w-[200px] h-[200px] object-cover rounded-md shadow-md">
-            <div class="flex-1">
-              <h3 class="text-xl font-semibold text-gray-700">Emergency Contact Information</h3>
-              <div class="mt-4 bg-white p-4 rounded-md shadow-sm border border-gray-200">
-                <ul class="list-disc pl-5 text-gray-600">
-                  <li>Ambulance: 911</li>
-                  <li>Police: 100</li>
-                  <li>Fire Services: 101</li>
-                  <li>Local Hospitals: 012-3456789</li>
-                  <li>Military Assistance: 110</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Victim Status Monitoring Section -->
-        <section class="rounded-lg border border-gray-300 p-6 shadow-md bg-gray-50">
-          <div class="flex items-center space-x-8">
-            <img src="https://th.bing.com/th?id=OIP.TNmw_ady_BRshaDT1dEJAgHaHa&w=250&h=250&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2" alt="Victim Status" class="w-[200px] h-[200px] object-cover rounded-md shadow-md">
-            <div class="flex-1">
-              <h3 class="text-xl font-semibold text-gray-700">Victim Status Monitoring</h3>
-              <div class="mt-4 bg-white p-4 rounded-md shadow-sm border border-gray-200">
-                <p class="text-gray-600">
-                  Keep track of victims' conditions and their progress toward hospital admission. Assess and prioritize stabilization efforts.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-      </div>
-    
+  <!-- Header (Fixed at the top) -->
+  <header>
+    <div class="flex">
+      <img src="https://tools-api.webcrumbs.org/image-placeholder/100/100/doodles/1" alt="Platform Logo">
+      <h1>Disaster Response Hub</h1>
     </div>
-  </div>
+  </header>
 
-  <!-- Running Flash News (Fixed to bottom) -->
-  <div class="flash-news bg-red-600 text-white flex items-center justify-between px-8 py-6 shadow-md rounded-lg fixed bottom-0 left-0 w-full z-20">
-    <span class="font-bold uppercase tracking-wide text-lg">Flash News</span>
-    <marquee class="text-lg font-medium">
+  <!-- Flash News Section (Fixed) -->
+  <div class="flash-news">
+    <span>Flash News</span>
+    <marquee>
       Severe weather warning in effect for coastal regions. Please take necessary precautions and stay updated for further instructions.
     </marquee>
-    <button class="text-lg font-bold bg-red-800 hover:bg-red-700 px-4 py-2 rounded-md" onclick="this.parentElement.style.display='none'">
-      Close
-    </button>
+    <button onclick="this.parentElement.style.display='none'">Close</button>
+  </div>
+
+  <!-- Page Content -->
+  <div class="content">
+    <h1>Emergency Care Dashboard</h1>
+
+    <!-- First Aid Treatment Section -->
+    <section>
+      <img src="https://th.bing.com/th?id=OIP.ohDbP_PIyH8RoLBYvQKzPgHaHa&w=250&h=250&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2" alt="First Aid">
+      <div>
+        <h3>First Aid Treatment List</h3>
+        <div class="card">
+          <p>
+            1. Apply pressure to wounds. <br>
+            2. Immobilize fractured areas. <br>
+            3. Perform CPR for unresponsive victims. <br>
+            4. Treat shock by keeping victims warm and calm. <br>
+            5. Administer basic wound cleaning.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Emergency Contact Section -->
+    <section>
+      <img src="https://th.bing.com/th?id=OIP.TQNpoC-3A1M6-U2lQHYZkAHaGP&w=272&h=229&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2" alt="Emergency Contact">
+      <div>
+        <h3>Emergency Contact List</h3>
+        <div class="card">
+          <ul>
+            <li>Ambulance: 911</li>
+            <li>Police: 100</li>
+            <li>Fire Services: 101</li>
+            <li>Local Hospitals: 012-3456789</li>
+            <li>Forces Response: 110</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Victim Status Overview Section -->
+    <section>
+      <img src="https://th.bing.com/th?id=OIP.TNmw_ady_BRshaDT1dEJAgHaHa&w=250&h=250&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2" alt="Victim Status">
+      <div>
+        <h3>Victim Status Overview</h3>
+        <div class="card">
+          <p>
+            Monitor the status of victims awaiting hospital admission and assess plans for stabilization.
+          </p>
+        </div>
+      </div>
+    </section>
+
   </div>
 
 </div>
 
+</body>
+</html>

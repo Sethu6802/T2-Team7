@@ -8,12 +8,11 @@ import { PatientStatus } from './PatientStatus.model';
 })
 
 export class PatientStatusService {
-  addPatientStatus(formData: any) {
-    throw new Error('Method not implemented.');
-  }
+  
 
   private apiUrl = 'http://localhost:8096/patient-status/getAll';
-  private url2 = 'http://localhost:8096/patient-status/getNotAdmitted';
+  private apiUrl2 = 'http://localhost:8096/patient-status/getNotAdmitted';
+  private apiUrl3 = 'http://localhost:8096/patient-status/add';
  
   constructor(private http: HttpClient) { }
 
@@ -22,8 +21,11 @@ export class PatientStatusService {
   }
 
   getNotAdmittedPatients(): Observable<PatientStatus[]> {
-    return this.http.get<PatientStatus[]>(this.url2);
+    return this.http.get<PatientStatus[]>(this.apiUrl2);
   }
   
-  
+  addPatientStatus(formData: any) {
+    return this.http.post<PatientStatus[]>(this.apiUrl3, formData);
+  }
+
 }

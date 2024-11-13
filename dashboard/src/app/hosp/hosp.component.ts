@@ -3,6 +3,7 @@ import { Patient } from '../patient.model';
 import { PatientService } from '../patient.service';
 import { PatientStatus } from '../PatientStatus.model';
 import { PatientStatusService } from '../patient-status.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-hosp',
@@ -18,7 +19,8 @@ export class HospComponent implements OnInit {
 
   constructor(
     private patientService: PatientService, 
-    private patientStatusService: PatientStatusService
+    private patientStatusService: PatientStatusService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -49,6 +51,7 @@ export class HospComponent implements OnInit {
   // Method to open the Victim Status form modal
   openAddStatusForm() {
     this.showAddStatusForm = true;
+    this.router.navigate(['/patient-status-form-model']);
   }
 
   // Method to close the Victim Status form modal
