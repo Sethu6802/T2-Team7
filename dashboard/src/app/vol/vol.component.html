@@ -1,26 +1,30 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Volunteer Service</title>
-    <link rel="stylesheet" href="vol.component.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
 <body>
-    <div class="container">
-        <h1>Volunteer Service</h1>
-
-        <div class="cards">
-            <div class="card">
-                <p class="card-title">Provide Shelter/Food</p>
-            </div>
-
-            <div class="card">
-                <p class="card-title">Provide Help</p>
-            </div>
-        </div>
-
-        <button class="add-btn">+</button>
+  <div class="container">
+    <h1>Volunteer Service</h1>
+  
+    <div class="cards">
+      <div class="card" (click)="navigateToServiceProviderForm()">
+        <p class="card-title">Provide Shelter/Food</p>
+      </div>
+  
+      <div class="card" (click)="navigateToHelperForm()">
+        <p class="card-title">Provide Help</p>
+      </div>
     </div>
+    <!-- Add a Router Link to the "+" Button -->
+    <button class="add-btn" routerLink="/report">+</button>
+  </div>
 </body>
 </html>
+
+
+  
