@@ -2,11 +2,15 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Patient } from './patient.model';
+import { PatientStatus } from './PatientStatus.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PatientService {
+  updateVictimStatus(arg0: any) {
+    throw new Error('Method not implemented.');
+  }
 
   private apiUrl = 'http://localhost:8072/hospital/';
 
@@ -15,4 +19,8 @@ export class PatientService {
   getPatients(): Observable<Patient[]> {
     return this.http.get<Patient[]>(this.apiUrl+"patients");
   }
+  addPatientStatus(patientStatus: PatientStatus): Observable<PatientStatus> {
+    return this.http.post<PatientStatus>(`${this.apiUrl}/add`, patientStatus);
+  }
+  
 }

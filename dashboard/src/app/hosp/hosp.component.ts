@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Patient } from '../patient.model';
 import { PatientService } from '../patient.service';
 import { PatientStatus } from '../PatientStatus.model';
@@ -7,14 +7,14 @@ import { PatientStatusService } from '../patient-status.service';
 @Component({
   selector: 'app-hosp',
   templateUrl: './hosp.component.html',
-  styleUrl: './hosp.component.css'
+  styleUrls: ['./hosp.component.css'] // Use styleUrls to support an array syntax
 })
 
-export class HospComponent {
-
+export class HospComponent implements OnInit {
   patients: Patient[] = [];
   patient_status: PatientStatus[] = [];
   yet_to_be_patients: PatientStatus[] = [];
+  showAddStatusForm: boolean = false; // Property to control modal visibility
 
   constructor(
     private patientService: PatientService, 
@@ -40,13 +40,19 @@ export class HospComponent {
     
 
     this.patientStatusService.getNotAdmittedPatients().subscribe(
-      next=> (someone: PatientStatus[]) => {
+      (someone: PatientStatus[]) => {
         this.yet_to_be_patients = someone;
-      },
-      error=>{
-        console.error("Error Occurred: " + error);
       }
-    )
+    );
+  }
 
+  // Method to open the Victim Status form modal
+  openAddStatusForm() {
+    this.showAddStatusForm = true;
+  }
+
+  // Method to close the Victim Status form modal
+  closeAddStatusForm() {
+    this.showAddStatusForm = false;
   }
 }
