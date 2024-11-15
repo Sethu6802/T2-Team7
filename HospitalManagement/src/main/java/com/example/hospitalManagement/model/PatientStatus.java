@@ -24,9 +24,9 @@ public class PatientStatus {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @ManyToOne
-    @JoinColumn(name = "patient_id", nullable = false)
-    private Hospital patient;
+	@ManyToOne
+	@JoinColumn(name = "patient_id", nullable = false)
+	private Hospital patient;
 
     private String status;
     private LocalDateTime statusUpdatedTime;

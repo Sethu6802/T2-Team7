@@ -1,6 +1,7 @@
 package com.example.hospitalManagement.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -44,7 +45,12 @@ public class PatientStatusService {
     }
 
     
-    public PatientDetails saveDetails(PatientDetails details) {
-    	return patientDetailsRepo.save(details);
+    public PatientStatus saveDetails(PatientStatus patientStatus) {
+    	return patientDetailsRepo.save(patientStatus);
     }
+
+
+	public Optional<PatientStatus> getDetailsById(long id) {
+		return patientStatusRepository.findById(id);
+	}
 }

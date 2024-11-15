@@ -1,6 +1,7 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PatientStatusService } from '../patient-status.service';  // Assuming the service is already created
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-patient-status-form-modal',
@@ -9,29 +10,41 @@ import { PatientStatusService } from '../patient-status.service';  // Assuming t
 })
 
 export class PatientStatusFormModalComponent {
-  @Output() close = new EventEmitter<void>(); // Event emitter to close the modal
+
+  @Output() close = new EventEmitter<void>();
+  @Input() patientId: number | null = null;
   patientStatusForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private patientStatusService: PatientStatusService) {
-    // Define the form controls and validations
+  constructor(private fb: FormBuilder, private patientStatusService: PatientStatusService, private router: Router) {
+
     this.patientStatusForm = this.fb.group({
-      patientId: ['', Validators.required],  // Make patientId required
-      status: ['', Validators.required],  // Make status required
-      notes: ['']  // Optional field
+      id: ['', Validators.required],
+      statusUpdatedTime: Date,
+      status: ['', Validators.required],
+      notes: ['']
     });
   }
 
-  // Handle form submission
+
   onSubmit() {
     if (this.patientStatusForm.valid) {
       const formData = this.patientStatusForm.value;
-      this.patientStatusService.addPatientStatus(formData);
+      if (this.patientId) {
+        this.patientStatusService.updatePatientStatus(this.patientId, formData).subscribe(response => {
+          console.log('Patient status updated:', response);
+        });
+      } else {
+        this.patientStatusService.addPatientStatus(formData).subscribe(response => {
+          console.log('New patient status added:', response);
+        });
+      }
     }
+    this.router.navigate(['/hosp']);
   }
 
-  // Handle modal close
   onClose() {
-    this.patientStatusForm.reset(); // Clear form
-    this.close.emit(); // Emit event to close modal
+    this.patientStatusForm.reset();
+    this.router.navigate(['/hosp']);
+    this.close.emit();
   }
 }
