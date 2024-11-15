@@ -29,7 +29,7 @@ export class ReportService {
       headers,
       params: {
         location: data.location,
-        clientIp: '127.0.0.1'  // Mock IP for testing; normally, it would be auto-set by the server.
+        clientIp: '127.0.0.1'
       }
     });
   }

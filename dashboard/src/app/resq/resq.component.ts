@@ -52,6 +52,7 @@ import { PatientStatus } from '../PatientStatus.model';
 import { PatientStatusService } from '../patient-status.service';
 import { Hospital } from '../hospitalInfo.model';
 import { HospInfoService } from '../hosp-info.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-resq',
@@ -68,7 +69,8 @@ export class ResqComponent implements OnInit {
   constructor(
     private soslistService: SosListService,
     private patientStatusService: PatientStatusService,
-    private hospInfoService: HospInfoService
+    private hospInfoService: HospInfoService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {

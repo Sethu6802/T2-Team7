@@ -10,10 +10,10 @@ import { PatientStatus } from './PatientStatus.model';
 export class PatientStatusService {
   
 
-  private apiUrl = 'http://localhost:8096/patient-status/getAll';
-  private apiUrl2 = 'http://localhost:8096/patient-status/getNotAdmitted';
-  private apiUrl3 = 'http://localhost:8096/patient-status/add';
-  private apiUrl4 = 'http://localhost:8096/patient-status/update/{id}';
+  private apiUrl = 'http://localhost:8072/patient-status/getAll';
+  private apiUrl2 = 'http://localhost:8072/patient-status/getNotAdmitted';
+  private apiUrl3 = 'http://localhost:8072/patient-status/add';
+  private apiUrl4 = 'http://localhost:8072/patient-status/update/{id}';
  
   constructor(private http: HttpClient) { }
 

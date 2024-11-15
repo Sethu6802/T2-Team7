@@ -5,9 +5,12 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: #f4f4f4;
+  color: white;
+  background: linear-gradient(135deg, #74ebd5 0%, #9face6 100%); /* Gradient background */
+  background-size: cover;
 }
 
+/* Adding a container for the form itself */
 .report-form-container {
   background-color: white;
   padding: 20px;
@@ -15,6 +18,7 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   width: 100%;
   max-width: 400px; /* Limiting the width of the form */
+  margin: 20px;
 }
 
 .report-form-heading {
@@ -60,4 +64,12 @@ button:hover {
 
 button:disabled {
   background-color: #ccc;
+}
+
+/* Optional: Add a background image for the form */
+.report-form {
+  background-image: url('https://static.vecteezy.com/system/resources/previews/006/852/804/original/abstract-blue-background-simple-design-for-your-website-free-vector.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
