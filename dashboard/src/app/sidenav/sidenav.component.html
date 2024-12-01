@@ -1,21 +1,17 @@
-<div class="sidenav" [ngClass] = "collapsed ? 'sidenav-collapsed' : 'sidenav-uncollapsed' ">
+<div class="sidenav" [ngClass]="collapsed ? 'sidenav-collapsed' : 'sidenav-uncollapsed'">
     <div class="logo-container">
-        <button class="logo" (click) = "toggleCollapse()">DM</button>
-        <div class="logo-text" @fadeInOut *ngIf = "collapsed">Disaster Management</div>
-        <div class="btn-close" *ngIf="collapsed" 
-            (click)="closeSideBar()" 
-            [ngClass]="{'spin-animation': collapsed, 'spin-rev': !collapsed}">
-
-            <i class="close-icon">X</i>
-        </div>
+        <button class="logo" (click)="toggleCollapse()">DM</button>
+        <div class="logo-text" @fadeInOut *ngIf="collapsed">Disaster Management</div>
+        <button class="btn-close" *ngIf="collapsed" 
+                (click)="closeSideBar()">
+            <i class="close-icon">✕</i>
+        </button>
     </div>
-
     <ul class="sidenav-nav">
-        <li class="nav-item" *ngFor = "let data of navData">
-            <span class = "tooltip" *ngIf = "!collapsed">{{data.message}}</span>
-            <a class="nav-link" [routerLink] = "data.routeLink">
-                <i class="link-icon" [class] = "data.icon"></i>
-                <span class="link-text" @fadeInOut *ngIf = "collapsed">{{data.label}}</span>
+        <li class="nav-item" *ngFor="let data of navData">
+            <a class="nav-link" [routerLink]="data.routeLink" title="{{collapsed ? '' : data.label}}">
+                <i class="link-icon" [class]="data.icon"></i>
+                <span class="link-text" @fadeInOut *ngIf="collapsed">{{data.label}}</span>
             </a>
         </li>
     </ul>
