@@ -27,12 +27,13 @@ h4{
     margin-left: 70px;
 }
 
+
 .card {
-    background-color: #ffffff;
+    background-color: #d5c4f1;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
-    margin-left: 20px;
-    width: calc(98% - 10px);
+    margin-left: 95px;
+    width: calc(95% - 50px);
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -54,13 +55,13 @@ h4{
 
 .inner-card {
     width: 92%;
-    margin-left: 90px;
+    margin-left: 60px;
     margin-right: 20px;
-    padding: 20px;
+    padding: 10px;
     padding-right: 60px;
     background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 50px;
+    box-shadow: 0px 10px 10px 0px rgba(70, 69, 69, 0.1);
     transition: transform 0.3s ease;
     overflow-x: auto;
 }
@@ -97,13 +98,11 @@ tbody tr:hover {
 }
 
 .add-btn {
-    margin-top: 20px;
-    margin-left: 100px;
     background-color: #6a4c9c;
     color: white;
     padding: 10px 20px;
     border: none;
-    border-radius: 25px;
+    border-radius: 5px;
     font-size: 1.5rem;
     cursor: pointer;
     align-self: center;
