@@ -23,7 +23,7 @@ public class PatientStatusService {
 	
 	
 	public List<PatientStatus> getNotAdmittedPatients(){
-		return patientStatusRepository.findByStatus("not-admitted");
+		return patientStatusRepository.findByStatus("Not-Admitted");
 	}
 
 	
